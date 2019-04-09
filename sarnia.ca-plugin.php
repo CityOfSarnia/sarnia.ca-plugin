@@ -1,8 +1,8 @@
 <?php
 /*Plugin Name: Sarnia.ca Plugin
 * Description: This plugin contains the functionality code required for the sarnia.ca website
-* Version: 0.1
-* Author: Zachary Collette
+* Version: 0.2
+* Author: City of Sarnia
 * Author URI: http://sarnia.ca
 */
 add_action( 'wp_head', 'sarnia_add_analytics' );
