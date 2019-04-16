@@ -1,6 +1,6 @@
 {
   "name": "cos/sarnia.ca-plugin",
-  "type": "wordpress-plugin",
+  "type": "mu-wordpress-plugin",
   "require": {
     "composer/installers": "^1.4"
   }
