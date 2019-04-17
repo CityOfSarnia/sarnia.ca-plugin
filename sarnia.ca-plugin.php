@@ -11,13 +11,13 @@ define( 'SARNIA_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 function sarnia_add_analytics() {
   ?>
   <!-- Global Site Tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=<?=getenv('google.analytics.trackingID')?>"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<?=getenv('GOOGLE_ANALYTICS_TRACKINGID')?>"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', '<?=getenv('google.analytics.trackingID')?>');
+    gtag('config', '<?=getenv('GOOGLE_ANALYTICS_TRACKINGID')?>');
   </script>
   <?php
 }
