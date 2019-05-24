@@ -8,17 +8,12 @@
 
 define( 'SARNIA_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 
-function sarnia_add_analytics() {
-  ?>
-  <!-- Global Site Tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=<?=getenv('GOOGLE_ANALYTICS_TRACKINGID')?>"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', '<?=getenv('GOOGLE_ANALYTICS_TRACKINGID')?>');
-  </script>
-  <?php
+add_filter( 'gform_field_value_refurl', 'populate_referral_url');
+ 
+function populate_referral_url( $form ){
+    // Grab URL from HTTP Server Var and put it into a variable
+    $refurl = $_SERVER['HTTP_REFERER'];
+ 
+    // Return that value to the form
+    return esc_url_raw($refurl);
 }
-add_action( 'wp_head', 'sarnia_add_analytics' );
