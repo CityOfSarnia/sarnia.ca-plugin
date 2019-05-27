@@ -9,11 +9,25 @@
 define( 'SARNIA_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 
 add_filter( 'gform_field_value_refurl', 'populate_referral_url');
- 
+
 function populate_referral_url( $form ){
     // Grab URL from HTTP Server Var and put it into a variable
     $refurl = $_SERVER['HTTP_REFERER'];
- 
+
     // Return that value to the form
     return esc_url_raw($refurl);
 }
+
+add_filter( 'gform_field_value_reftitle', 'populate_page_title');
+
+function populate_page_title( $form ){
+    $url = htmlspecialchars($_SERVER['HTTP_REFERER']);
+    $back_id = url_to_postid($_SERVER['HTTP_REFERER']);
+    if( $back_id > 0 ){
+         $back_title = get_the_title( $back_id );
+         echo "<a href='{$url}'>Go back to the {$back_title}</a>"; 
+    }
+    // Return that value to the form
+    return $back_title;
+}
+
