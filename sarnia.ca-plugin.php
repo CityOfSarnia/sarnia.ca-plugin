@@ -12,13 +12,13 @@ add_action( 'wp_head', 'sarnia_add_analytics' );
 function sarnia_add_analytics() {
   ?>
   <!-- Global Site Tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=<?=env('google.analytics.trackingID')?>"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<?=env('GOOGLE_ANALYTICS_TRACKINGID')?>"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', '<?=env('google.analytics.trackingID')?>');
+    gtag('config', '<?=env('GOOGLE_ANALYTICS_TRACKINGID')?>');
   </script>
   <?php
 }
