@@ -49,3 +49,5 @@ function filter_gform_ip_address( $ip ) {
     // E.g. $_SERVER['HTTP_X_FORWARDED_FOR'] or $_SERVER['HTTP_CLIENT_IP']
     return $_SERVER['HTTP_X_FORWARDED_FOR'];
 }
+
+define('GF_LICENSE_KEY',env('GF_LICENSE_KEY'));
