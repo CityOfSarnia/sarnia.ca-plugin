@@ -1,7 +1,7 @@
 <?php
 /*Plugin Name: Sarnia.ca Plugin
 * Description: This plugin contains the functionality code required for the sarnia.ca website
-* Version: 0.1.3
+* Version: 0.2.0
 * Author: City of Sarnia
 * Author URI: http://sarnia.ca
 */
