@@ -3,7 +3,7 @@
 Plugin Name: Sarnia.ca Plugin
 Plugin URI:  https://github.com/CityOfSarnia/sarnia.ca-plugin
 Description: This plugin contains the functionality code required for the sarnia.ca website
-Version:     1.4.0
+Version:     1.5.0
 Author:      City of Sarnia
 Author URI:  https://www.sarnia.ca
 License:     MIT License
@@ -24,25 +24,6 @@ function sarnia_add_analytics() {
     gtag('config', '<?=env('GOOGLE_ANALYTICS_TRACKINGID')?>');
   </script>
   <?php
-}
-
-add_filter( 'gform_field_value_refurl', 'populate_referral_url');
-
-function populate_referral_url( $form ){
-    // Grab URL from HTTP Server Var and put it into a variable
-    $refurl = $_SERVER['HTTP_REFERER'];
-
-    // Return that value to the form
-    return esc_url_raw($refurl);
-}
-
-add_filter( 'gform_field_value_reftitle', 'populate_page_title');
-
-function populate_page_title( $form ){
-    $back_id = url_to_postid($_SERVER['HTTP_REFERER']);
-    if( $back_id > 0 ) $back_title = get_the_title( $back_id );
-    // Return that value to the form
-    return $back_title;
 }
 
 add_filter( 'gform_ip_address', 'filter_gform_ip_address' );
