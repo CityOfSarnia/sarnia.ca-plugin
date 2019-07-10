@@ -1,7 +1,7 @@
 <?php
 /*Plugin Name: Sarnia.ca Plugin
 * Description: This plugin contains the functionality code required for the sarnia.ca website
-* Version: 1.0.0
+* Version: 1.1.0
 * Author: City of Sarnia
 * Author URI: http://sarnia.ca
 */
@@ -50,7 +50,10 @@ function filter_gform_ip_address( $ip ) {
     return $_SERVER['HTTP_X_FORWARDED_FOR'];
 }
 
-define('GF_LICENSE_KEY',env('GF_LICENSE_KEY'));
+define('GF_LICENSE_KEY', env('GF_LICENSE_KEY'));
 define('GF_RECAPTCHA_PUBLIC_KEY', env('GF_RECAPTCHA_PUBLIC_KEY'));
 define('GF_RECAPTCHA_PRIVATE_KEY', env('GF_RECAPTCHA_PRIVATE_KEY'));
 
+add_filter('bedrock/stage_switcher_visibility', function($visibility) {
+  return true;
+});
