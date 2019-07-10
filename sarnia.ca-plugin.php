@@ -1,12 +1,13 @@
 <?php
 /*
- * Plugin Name: Sarnia.ca Plugin
- * Plugin URI: https://github.com/CityOfSarnia/sarnia.ca-plugin
- * Description: This plugin contains the functionality code required for the sarnia.ca website
- * Version: 1.3.0
- * Author: City of Sarnia
- * Author URI: https://www.sarnia.ca
- */
+Plugin Name: Sarnia.ca Plugin
+Plugin URI:  https://github.com/CityOfSarnia/sarnia.ca-plugin
+Description: This plugin contains the functionality code required for the sarnia.ca website
+Version:     1.4.0
+Author:      City of Sarnia
+Author URI:  https://www.sarnia.ca
+License:     MIT License
+*/
 
 define( 'SARNIA_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 
