@@ -3,7 +3,7 @@
  *  Plugin Name: Sarnia.ca Plugin
  *  Plugin URI:  https://github.com/CityOfSarnia/sarnia.ca-plugin
  *  Description: This plugin contains the functionality code required for the sarnia.ca website
- *  Version:     1.7.0
+ *  Version:     1.8.0
  *  Author:      City of Sarnia
  *  Author URI:  https://www.sarnia.ca
  *  License:     MIT License
@@ -18,15 +18,18 @@ function sarnia_add_analytics()
 {
     ?>
     <!-- Global Site Tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=<?=env('GOOGLE_ANALYTICS_TRACKINGID')?>"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<?= env('GOOGLE_ANALYTICS_TRACKINGID') ?>"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
         gtag('js', new Date());
 
-        gtag('config', '<?=env('GOOGLE_ANALYTICS_TRACKINGID')?>');
+        gtag('config', '<?= env('GOOGLE_ANALYTICS_TRACKINGID') ?>');
     </script>
-    <?php
+<?php
 }
 add_action('wp_head', 'sarnia_add_analytics');
 
@@ -69,6 +72,8 @@ function create_notifications($request)
         'post_type' => 'notifications',
         'post_status' => 'publish',
     ));
+
+    update_field('notification_date', get_the_date('M j, Y \a\t g:i a', $post_id), $post_id);
 
     return new WP_REST_Response($post_id, 200);
 }
