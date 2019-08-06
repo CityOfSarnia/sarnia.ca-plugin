@@ -3,8 +3,7 @@
  *  Plugin Name: Sarnia.ca Plugin
  *  Plugin URI:  https://github.com/CityOfSarnia/sarnia.ca-plugin
  *  Description: This plugin contains the functionality code required for the sarnia.ca website
- *  Version:     1.10.0
- *  Author:      City of Sarnia
+ *  Version:     1.12.0
  *  Author URI:  https://www.sarnia.ca
  *  License:     MIT License
  */
@@ -13,14 +12,6 @@ define('SARNIA_PLUGIN_PATH', plugin_dir_path(__FILE__));
 define('GF_LICENSE_KEY', env('GF_LICENSE_KEY'));
 define('GF_RECAPTCHA_PUBLIC_KEY', env('GF_RECAPTCHA_PUBLIC_KEY'));
 define('GF_RECAPTCHA_PRIVATE_KEY', env('GF_RECAPTCHA_PRIVATE_KEY'));
-
-function filter_gform_ip_address($ip)
-{
-    // Return the IP address set by the proxy.
-    // E.g. $_SERVER['HTTP_X_FORWARDED_FOR'] or $_SERVER['HTTP_CLIENT_IP']
-    return $_SERVER['HTTP_X_FORWARDED_FOR'];
-}
-add_filter('gform_ip_address', 'filter_gform_ip_address');
 
 add_filter('bedrock/stage_switcher_visibility', function ($visibility) {
     return true;
@@ -91,12 +82,12 @@ function register_endpoints()
 }
 add_action('rest_api_init', 'register_endpoints');
 
-function sarnia_request($query_string )
+function sarnia_request($query_string)
 {
-    if( isset( $query_string['page'] ) ) {
-        if( ''!=$query_string['page'] ) {
-            if( isset( $query_string['name'] ) ) {
-                unset( $query_string['name'] );
+    if (isset($query_string['page'])) {
+        if ('' != $query_string['page']) {
+            if (isset($query_string['name'])) {
+                unset($query_string['name']);
             }
         }
     }
@@ -104,10 +95,40 @@ function sarnia_request($query_string )
 }
 add_filter('request', 'sarnia_request');
 
-add_action('pre_get_posts','sarnia_pre_get_posts');
-function sarnia_pre_get_posts( $query ) {
-    if( $query->is_main_query() && !$query->is_feed() && !$query->is_search()) {
-        $query->set( 'paged', str_replace( '/', '', get_query_var( 'page' ) ) );
+add_action('pre_get_posts', 'sarnia_pre_get_posts');
+function sarnia_pre_get_posts($query)
+{
+    if ($query->is_main_query() && !$query->is_feed() && !$query->is_search()) {
+        $query->set('paged', str_replace('/', '', get_query_var('page')));
     }
 }
 
+// Force Gravity Forms to init scripts in the footer and ensure that the DOM is loaded before scripts are executed
+add_filter('gform_init_scripts_footer', '__return_true');
+add_filter('gform_cdata_open', 'wrap_gform_cdata_open', 1);
+function wrap_gform_cdata_open($content = '')
+{
+    if ((defined('DOING_AJAX') && DOING_AJAX) || isset($_POST['gform_ajax'])) {
+        return $content;
+    }
+    $content = 'document.addEventListener( "DOMContentLoaded", function() { ';
+    return $content;
+}
+add_filter('gform_cdata_close', 'wrap_gform_cdata_close', 99);
+function wrap_gform_cdata_close($content = '')
+{
+    if ((defined('DOING_AJAX') && DOING_AJAX) || isset($_POST['gform_ajax'])) {
+        return $content;
+    }
+    $content = ' }, false );';
+    return $content;
+}
+
+// Return the IP address set by the proxy.
+add_filter('gform_ip_address', 'filter_gform_ip_address');
+function filter_gform_ip_address($ip) {
+    if( isset( $_SERVER['HTTP_X_FORWARDED_FOR'] ) )
+        return $_SERVER['HTTP_X_FORWARDED_FOR'];
+    else  
+        return FALSE;
+}
