@@ -3,7 +3,7 @@
  *  Plugin Name: Sarnia.ca Plugin
  *  Plugin URI:  https://github.com/CityOfSarnia/sarnia.ca-plugin
  *  Description: This plugin contains the functionality code required for the sarnia.ca website
- *  Version:     1.9.1
+ *  Version:     1.10.0
  *  Author:      City of Sarnia
  *  Author URI:  https://www.sarnia.ca
  *  License:     MIT License
@@ -13,25 +13,6 @@ define('SARNIA_PLUGIN_PATH', plugin_dir_path(__FILE__));
 define('GF_LICENSE_KEY', env('GF_LICENSE_KEY'));
 define('GF_RECAPTCHA_PUBLIC_KEY', env('GF_RECAPTCHA_PUBLIC_KEY'));
 define('GF_RECAPTCHA_PRIVATE_KEY', env('GF_RECAPTCHA_PRIVATE_KEY'));
-
-function sarnia_add_analytics()
-{
-    ?>
-    <!-- Global Site Tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=<?= env('GOOGLE_ANALYTICS_TRACKINGID') ?>"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', '<?= env('GOOGLE_ANALYTICS_TRACKINGID') ?>');
-    </script>
-<?php
-}
-add_action('wp_head', 'sarnia_add_analytics');
 
 function filter_gform_ip_address($ip)
 {
