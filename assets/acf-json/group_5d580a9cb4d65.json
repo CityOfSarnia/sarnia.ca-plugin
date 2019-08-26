@@ -3,10 +3,10 @@
     "title": "Notifications Config",
     "fields": [
         {
-            "key": "field_5d580a9cc489d",
-            "label": "Signup",
-            "name": "signup",
-            "type": "url",
+            "key": "field_5d641b16ac0dc",
+            "label": "Show Recent Notifications",
+            "name": "show_recent_notifications",
+            "type": "true_false",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -15,8 +15,11 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": ""
+            "message": "Show the recent notifications bar on the front page.",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
         },
         {
             "key": "field_5d5c344cad8d3",
@@ -38,6 +41,22 @@
             "allow_null": 0,
             "allow_archives": 0,
             "multiple": 0
+        },
+        {
+            "key": "field_5d580a9cc489d",
+            "label": "Signup",
+            "name": "signup",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
         }
     ],
     "location": [
@@ -57,5 +76,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1566324375
+    "modified": 1566842147
 }
