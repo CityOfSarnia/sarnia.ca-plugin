@@ -184,18 +184,6 @@ function my_acf_init()
             'supports'                 => array('align' => false),
         ));
 
-        // register a notifications block
-        acf_register_block(array(
-            'name'                        => 'notifications',
-            'title'                        => __('Notifications'),
-            'description'            => __('A notifications block.'),
-            'render_callback'    => 'my_acf_block_render_callback',
-            'category'                => 'formatting',
-            'icon'                        => 'star-filled',
-            'keywords'                => array('notifications'),
-            'supports'                 => array('align' => array('full')),
-        ));
-
         // register a recent posts block
         acf_register_block(array(
             'name'                        => 'recent-posts',
