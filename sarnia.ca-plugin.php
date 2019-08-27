@@ -9,14 +9,14 @@
  */
 
 define('SARNIA_PLUGIN_PATH', plugin_dir_path(__FILE__));
-define('GF_LICENSE_KEY', env('GF_LICENSE_KEY'));
-define('GF_RECAPTCHA_PUBLIC_KEY', env('GF_RECAPTCHA_PUBLIC_KEY'));
-define('GF_RECAPTCHA_PRIVATE_KEY', env('GF_RECAPTCHA_PRIVATE_KEY'));
 
 require_once(SARNIA_PLUGIN_PATH .'includes/gravity_forms.php');
 require_once(SARNIA_PLUGIN_PATH .'includes/notifications.php');
 require_once(SARNIA_PLUGIN_PATH .'includes/post_types.php');
 
+SarniaPostTypes::init(); // load before notifications
+SarniaNotifications::init();
+SarniaGForms::init();
 
 add_filter('bedrock/stage_switcher_visibility', function ($visibility) {
     return true;
