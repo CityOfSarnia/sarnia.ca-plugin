@@ -13,6 +13,11 @@ define('GF_LICENSE_KEY', env('GF_LICENSE_KEY'));
 define('GF_RECAPTCHA_PUBLIC_KEY', env('GF_RECAPTCHA_PUBLIC_KEY'));
 define('GF_RECAPTCHA_PRIVATE_KEY', env('GF_RECAPTCHA_PRIVATE_KEY'));
 
+require_once(SARNIA_PLUGIN_PATH .'includes/gravity_forms.php');
+require_once(SARNIA_PLUGIN_PATH .'includes/notifications.php');
+require_once(SARNIA_PLUGIN_PATH .'includes/post_types.php');
+
+
 add_filter('bedrock/stage_switcher_visibility', function ($visibility) {
     return true;
 });
@@ -114,7 +119,7 @@ function my_acf_json_load_point($paths)
 {
     // remove original path (optional)
     unset($paths[0]);
-    $paths[] = plugin_dir_path(__FILE__) . '/assets/acf-json';
+    $paths[] = SARNIA_PLUGIN_PATH . '/assets/acf-json';
 
     return   $paths;
 }
@@ -123,7 +128,7 @@ add_filter('acf/settings/load_json', 'my_acf_json_load_point');
 function my_acf_json_save_point($path)
 {
     // update path
-    $path = plugin_dir_path(__FILE__) . '/assets/acf-json';
+    $path = SARNIA_PLUGIN_PATH . '/assets/acf-json';
 
     // return
     return $path;
@@ -136,9 +141,9 @@ function my_acf_block_render_callback($block)
     // convert name ("acf/testimonial") into path friendly slug ("testimonial")
     $slug = str_replace('acf/', '', $block['name']);
 
-    // include a template part from within the "template-parts/block" folder
-    if (file_exists(plugin_dir_path(__FILE__) . "/block/block-{$slug}.php")) {
-        include(plugin_dir_path(__FILE__) . "/block/block-{$slug}.php");
+    // include a template part from within the "includes/block" folder
+    if (file_exists(SARNIA_PLUGIN_PATH . "includes/block/block-{$slug}.php")) {
+        include(SARNIA_PLUGIN_PATH . "/includes/block/block-{$slug}.php");
     }
 }
 
