@@ -3,7 +3,7 @@
  *  Plugin Name: Sarnia.ca Plugin
  *  Plugin URI:  https://github.com/CityOfSarnia/sarnia.ca-plugin
  *  Description: This plugin contains the functionality code required for the sarnia.ca website
- *  Version:     1.12.0
+ *  Version:     2.0
  *  Author URI:  https://www.sarnia.ca
  *  License:     MIT License
  */

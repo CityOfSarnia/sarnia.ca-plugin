@@ -20,9 +20,9 @@ if (get_field('recent_posts_category')) :
     $catName = get_cat_name($cat_id);
     if (get_field('recent_posts_headline')) :
 ?>
-        <h2 class="news-card__headline"><?php the_field('recent_posts_headline'); ?></h2>
+        <h2 class="news-card__headline"><a href="<?php echo get_category_link($cat_id); ?>"><?php the_field('recent_posts_headline'); ?></a></h2>
 <?php else : ?>
-        <h2 class="news-card__headline"><?= $catName; ?></h2>
+        <h2 class="news-card__headline"><a href="<?php echo get_category_link($cat_id); ?>"><?= $catName; ?></a></h2>
 <?php 
     endif;
     $post_count = (get_field('recent_posts_count') ? get_field('recent_posts_count') : 3);

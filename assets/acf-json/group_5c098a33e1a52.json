@@ -35,6 +35,38 @@
             "placeholder": ""
         },
         {
+            "key": "field_5d5418728fc2c",
+            "label": "LinkedIn",
+            "name": "linkedin",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5d7a8e6e51e33",
+            "label": "Youtube",
+            "name": "youtube",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
             "key": "field_5c098a821f948",
             "label": "Instagram",
             "name": "instagram",
@@ -51,9 +83,9 @@
             "placeholder": ""
         },
         {
-            "key": "field_5d5418728fc2c",
-            "label": "LinkedIn",
-            "name": "linkedin",
+            "key": "field_5d7a8e9951e34",
+            "label": "Vimeo",
+            "name": "vimeo",
             "type": "url",
             "instructions": "",
             "required": 0,
@@ -84,5 +116,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1565792381
+    "modified": 1568313110
 }
