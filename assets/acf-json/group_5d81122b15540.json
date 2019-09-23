@@ -1,0 +1,104 @@
+{
+    "key": "group_5d81122b15540",
+    "title": "Shortcut Menu",
+    "fields": [
+        {
+            "key": "field_5d8112343d91b",
+            "label": "Menu Item",
+            "name": "menu_repeater",
+            "type": "repeater",
+            "instructions": "Must be 8 fields.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_5d8113af3d91c",
+            "min": 8,
+            "max": 8,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_5d8113af3d91c",
+                    "label": "Image",
+                    "name": "sub_field_image",
+                    "type": "image",
+                    "instructions": ".svg files only, try to match theme",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "svg"
+                },
+                {
+                    "key": "field_5d8114593d91d",
+                    "label": "Text",
+                    "name": "sub_field_text",
+                    "type": "text",
+                    "instructions": "This is the label for the .svg",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": 30
+                },
+                {
+                    "key": "field_5d8114883d91e",
+                    "label": "URL",
+                    "name": "sub_field_url",
+                    "type": "url",
+                    "instructions": "Please use relative URLS (i.e. https:\/\/www.sarnia.ca\/city-governement\/mayor\/ would become \/city-government\/mayor\/)",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/shortcut-menu"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1568989571
+}

@@ -212,6 +212,18 @@ function my_acf_init()
             'keywords'                => array('navigation', 'menu', 'nav'),
             'supports'                 => array('align' => false),
         ));
+
+        // register the shortcut-menu block
+        acf_register_block(array(
+            'name'                        => 'shortcut-menu',
+            'title'                        => __('Shortcut Menu'),
+            'description'            => __('A navigation block.'),
+            'render_callback'    => 'my_acf_block_render_callback',
+            'category'                => 'formatting',
+            'icon'                        => 'list-view',
+            'keywords'                => array('icon', 'menu', 'shortcut'),
+            'supports'                 => array('align' => false),
+        ));
     }
 }
 add_action('acf/init', 'my_acf_init');
