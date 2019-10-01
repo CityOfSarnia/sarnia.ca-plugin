@@ -3,7 +3,7 @@
  *  Plugin Name: Sarnia.ca Plugin
  *  Plugin URI:  https://github.com/CityOfSarnia/sarnia.ca-plugin
  *  Description: This plugin contains the functionality code required for the sarnia.ca website
- *  Version:     2.0
+ *  Version:     2.1.1
  *  Author URI:  https://www.sarnia.ca
  *  License:     MIT License
  */
@@ -320,7 +320,7 @@ add_action('pre_get_posts', 'sarnia_pre_get_posts');
 function sarnia_pre_get_posts($query)
 {
     if ($query->is_main_query() && !$query->is_feed() && !$query->is_search()) {
-        $query->set('paged', str_replace('/', '', get_query_var('page')));
+        $query->set('paged', str_replace('/', '', get_query_var('paged')));
     }
 }
 
