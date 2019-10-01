@@ -6,10 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2.1.1] - 2019/10/01
+###Fixed
+- Corrected typo in sarnia_pre_get_posts()
+
 ## [v2.1.0] - 2019/09/23
 ###Added
 - This Changelog
 - New ACF Field for a shortcut menu
 
 [Unreleased]: https://github.com/CityOfSarnia/sarnia.ca-plugin/compare/master...HEAD
+[v2.1.1]: https://github.com/CityOfSarnia/sarnia.ca-plugin/compare/v2.1.0...v2.1.1
 [v2.1.0]: https://github.com/CityOfSarnia/sarnia.ca-plugin/compare/v2.0...v2.1.0
