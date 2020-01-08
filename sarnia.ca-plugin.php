@@ -354,3 +354,24 @@ function filter_gform_ip_address($ip)
     else
         return FALSE;
 }
+
+function wpb_hook_javascript_footer() {
+?>
+<script type="text/javascript">
+    window._monsido = window._monsido || {
+        token: "<?=env('MONSIDO_TOKEN');?>",
+        statistics: {
+            enabled: true,
+            documentTracking: {
+                enabled: false,
+                documentCls: "monsido_download",
+                documentIgnoreCls: "monsido_ignore_download",
+                documentExt: [],
+            },
+        },
+    };
+</script>
+<script type="text/javascript" async src="https://app-script.monsido.com/v2/monsido-script.js"></script>
+<?php
+}
+add_action('wp_footer', 'wpb_hook_javascript_footer');
